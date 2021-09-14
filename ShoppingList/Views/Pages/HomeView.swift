@@ -32,6 +32,14 @@ struct HomeView: View {
             .listStyle(PlainListStyle())
             .padding(.top, 12)
             .navigationTitle("Shopping List")
+            .navigationBarItems(
+                trailing: Button("Create") {
+                    self.presentingCreateView = true
+                }
+                .sheet(isPresented: $presentingCreateView) {
+                    CreateView(viewModel: viewModel)
+                }
+            )
             .onAppear(perform: {
                 viewModel.getList()
             })
