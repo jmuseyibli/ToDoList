@@ -8,25 +8,34 @@
 import SwiftUI
 
 struct HomeView: View {
-    @State private var items = (0...5).map { id -> ShoppingItem in
-        let cdItem = CDShoppingItem(context: CoreDataManager.shared.viewContext)
-        cdItem.id = UUID()
-        cdItem.name = "Sample row"
-        cdItem.dueDate = Date()
-        return ShoppingItem(item: cdItem)
-    }
+    @State var presentingCreateView = false
+    @ObservedObject var viewModel = ShoppingListViewModel()
 
     var body: some View {
         NavigationView {
             List() {
-                ForEach(items) { item in
-                    let matchedIndex = items.firstIndex { $0.id == item.id }
-                    ListItem(shoppingItem: $items[matchedIndex!]).listRowInsets(EdgeInsets())
-                }
+                Text("You have \(viewModel.incompleteCount) uncompleted items in your shopping list")
+                    .font(.footnote)
+                    .foregroundColor(.gray)
+                ForEach(viewModel.items) { item in
+                    let matchedIndex = viewModel.items.firstIndex { $0.id == item.id }
+                    ListItem(shoppingItem: $viewModel.items[matchedIndex!])
+                        .listRowInsets(EdgeInsets())
+                }.onDelete(perform: { indexSet in
+                    indexSet.forEach { index in
+                        let shoppingItem = viewModel.items[index]
+                        viewModel.delete(shoppingItem)
+                        viewModel.getList()
+                    }
+                })
             }
             .listStyle(PlainListStyle())
             .padding(.top, 12)
             .navigationTitle("Shopping List")
+            .onAppear(perform: {
+                viewModel.getList()
+            })
+
         }
     }
 }
