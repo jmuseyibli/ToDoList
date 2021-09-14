@@ -23,8 +23,8 @@ struct ListItem: View {
             
 
         }
-        .padding(.vertical, 8)
-        .padding(.horizontal, 16)
+        .padding(.vertical, 16)
+        .padding(.horizontal, 24)
         .onTapGesture {
             shoppingItem.isCompleted.toggle()
             CoreDataManager.shared.saveContext()
