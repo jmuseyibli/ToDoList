@@ -14,6 +14,8 @@
 		A154D09126F12CB2003A4067 /* ShoppingList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A154D08F26F12CB2003A4067 /* ShoppingList.xcdatamodeld */; };
 		A154D09526F12D01003A4067 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A154D09426F12D01003A4067 /* CoreDataManager.swift */; };
 		A154D09826F12D30003A4067 /* ShoppingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A154D09726F12D30003A4067 /* ShoppingItem.swift */; };
+		A154D09C26F12D5F003A4067 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A154D09B26F12D5F003A4067 /* ListItem.swift */; };
+		A154D09F26F12DAB003A4067 /* Checkbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A154D09E26F12DAB003A4067 /* Checkbox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		A154D09026F12CB2003A4067 /* ShoppingList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShoppingList.xcdatamodel; sourceTree = "<group>"; };
 		A154D09426F12D01003A4067 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		A154D09726F12D30003A4067 /* ShoppingItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingItem.swift; sourceTree = "<group>"; };
+		A154D09B26F12D5F003A4067 /* ListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		A154D09E26F12DAB003A4067 /* Checkbox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkbox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,8 @@
 		A154D08B26F12BAA003A4067 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A154D0A126F12DAE003A4067 /* Controls */,
+				A154D09A26F12D56003A4067 /* Rows */,
 				A154D07B26F12B4A003A4067 /* HomeView.swift */,
 			);
 			path = Views;
@@ -100,6 +106,22 @@
 				A154D08F26F12CB2003A4067 /* ShoppingList.xcdatamodeld */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		A154D09A26F12D56003A4067 /* Rows */ = {
+			isa = PBXGroup;
+			children = (
+				A154D09B26F12D5F003A4067 /* ListItem.swift */,
+			);
+			path = Rows;
+			sourceTree = "<group>";
+		};
+		A154D0A126F12DAE003A4067 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				A154D09E26F12DAB003A4067 /* Checkbox.swift */,
+			);
+			path = Controls;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,9 +193,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A154D09C26F12D5F003A4067 /* ListItem.swift in Sources */,
 				A154D09126F12CB2003A4067 /* ShoppingList.xcdatamodeld in Sources */,
 				A154D07C26F12B4A003A4067 /* HomeView.swift in Sources */,
 				A154D09526F12D01003A4067 /* CoreDataManager.swift in Sources */,
+				A154D09F26F12DAB003A4067 /* Checkbox.swift in Sources */,
 				A154D09826F12D30003A4067 /* ShoppingItem.swift in Sources */,
 				A154D07A26F12B4A003A4067 /* ShoppingListApp.swift in Sources */,
 			);
