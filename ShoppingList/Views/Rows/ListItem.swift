@@ -16,7 +16,7 @@ struct ListItem: View {
             Text(shoppingItem.name)
                 .foregroundColor(shoppingItem.isCompleted ? .blue : .black)
             Spacer()
-            Text(shoppingItem.dueDate?.description ?? "")
+            Text(shoppingItem.dueDateDescription)
                 .font(.footnote)
                 .fontWeight(.light)
                 .foregroundColor(.secondary)

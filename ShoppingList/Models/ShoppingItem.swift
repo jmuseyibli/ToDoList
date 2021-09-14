@@ -22,6 +22,14 @@ struct ShoppingItem: Identifiable {
         item.dueDate
     }
 
+    var dueDateDescription: String {
+        if let date = dueDate {
+            let formatter = RelativeDateTimeFormatter()
+            return formatter.localizedString(for: date, relativeTo: Date())
+        }
+        return ""
+    }
+
     var isCompleted: Bool {
         get { item.isCompleted }
         set {

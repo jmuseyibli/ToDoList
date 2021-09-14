@@ -27,7 +27,7 @@ struct CreateView: View {
                         .padding(.vertical)
                 }
                 CenteredButton(title: "Create", action: {
-                    viewModel.saveItem(with: name, and: date)
+                    viewModel.saveItem(with: name, and: remindMe ? date : nil)
                     viewModel.getList()
                     presentationMode.wrappedValue.dismiss()
                 }, isDisabled: .constant(name.count == 0))
