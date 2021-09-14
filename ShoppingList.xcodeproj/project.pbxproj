@@ -20,6 +20,9 @@
 		A154D0A926F130B5003A4067 /* CreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A154D0A826F130B5003A4067 /* CreateView.swift */; };
 		A154D0AE26F130FD003A4067 /* PresentedViewTopIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A154D0AD26F130FD003A4067 /* PresentedViewTopIndicator.swift */; };
 		A154D0B226F1313C003A4067 /* CenteredButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A154D0B126F1313C003A4067 /* CenteredButton.swift */; };
+		A154D0B626F13B9D003A4067 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A154D0B526F13B9D003A4067 /* UIImage+Extensions.swift */; };
+		A154D0BA26F1427B003A4067 /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A154D0B926F1427B003A4067 /* PhotoPickerView.swift */; };
+		A154D0BD26F142B0003A4067 /* ImagePickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A154D0BC26F142B0003A4067 /* ImagePickerButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		A154D0A826F130B5003A4067 /* CreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateView.swift; sourceTree = "<group>"; };
 		A154D0AD26F130FD003A4067 /* PresentedViewTopIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentedViewTopIndicator.swift; sourceTree = "<group>"; };
 		A154D0B126F1313C003A4067 /* CenteredButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenteredButton.swift; sourceTree = "<group>"; };
+		A154D0B526F13B9D003A4067 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		A154D0B926F1427B003A4067 /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
+		A154D0BC26F142B0003A4067 /* ImagePickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +76,7 @@
 		A154D07826F12B4A003A4067 /* ShoppingList */ = {
 			isa = PBXGroup;
 			children = (
+				A154D0B426F13B8E003A4067 /* Extensions */,
 				A154D08E26F12CA1003A4067 /* Models */,
 				A154D08B26F12BAA003A4067 /* Views */,
 				A154D0A326F12FE8003A4067 /* ViewModels */,
@@ -131,6 +138,7 @@
 			children = (
 				A154D09E26F12DAB003A4067 /* Checkbox.swift */,
 				A154D0B126F1313C003A4067 /* CenteredButton.swift */,
+				A154D0BC26F142B0003A4067 /* ImagePickerButton.swift */,
 			);
 			path = Controls;
 			sourceTree = "<group>";
@@ -148,6 +156,7 @@
 			children = (
 				A154D07B26F12B4A003A4067 /* HomeView.swift */,
 				A154D0A826F130B5003A4067 /* CreateView.swift */,
+				A154D0B926F1427B003A4067 /* PhotoPickerView.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -158,6 +167,14 @@
 				A154D0AD26F130FD003A4067 /* PresentedViewTopIndicator.swift */,
 			);
 			path = Indicators;
+			sourceTree = "<group>";
+		};
+		A154D0B426F13B8E003A4067 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A154D0B526F13B9D003A4067 /* UIImage+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,6 +249,7 @@
 				A154D09C26F12D5F003A4067 /* ListItem.swift in Sources */,
 				A154D0AE26F130FD003A4067 /* PresentedViewTopIndicator.swift in Sources */,
 				A154D0B226F1313C003A4067 /* CenteredButton.swift in Sources */,
+				A154D0B626F13B9D003A4067 /* UIImage+Extensions.swift in Sources */,
 				A154D0A926F130B5003A4067 /* CreateView.swift in Sources */,
 				A154D09126F12CB2003A4067 /* ShoppingList.xcdatamodeld in Sources */,
 				A154D07C26F12B4A003A4067 /* HomeView.swift in Sources */,
@@ -239,7 +257,9 @@
 				A154D09F26F12DAB003A4067 /* Checkbox.swift in Sources */,
 				A154D09826F12D30003A4067 /* ShoppingItem.swift in Sources */,
 				A154D0A526F12FF8003A4067 /* ShoppingListViewModel.swift in Sources */,
+				A154D0BA26F1427B003A4067 /* PhotoPickerView.swift in Sources */,
 				A154D07A26F12B4A003A4067 /* ShoppingListApp.swift in Sources */,
+				A154D0BD26F142B0003A4067 /* ImagePickerButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

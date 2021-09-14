@@ -11,6 +11,8 @@ struct CreateView: View {
     @State private var name: String = ""
     @State private var date: Date = Date()
     @State private var remindMe = false
+    @State private var image = UIImage()
+    @State private var isPresentingPhotoPicker = false
     @Environment(\.presentationMode) var presentationMode
 
     var viewModel: ShoppingListViewModel
@@ -18,23 +20,37 @@ struct CreateView: View {
     var body: some View {
         ZStack(alignment: .top) {
             Form {
-                TextField("Name", text: $name)
-                    .padding(.vertical)
-                Toggle("Remind me", isOn: $remindMe)
-                if remindMe {
-                    DatePicker("Remind me", selection: $date)
-                        .datePickerStyle(GraphicalDatePickerStyle())
+                Section(header: Text("Image")) {
+                    ImagePickerButton(isPresentingPhotoPicker: $isPresentingPhotoPicker, image: $image)
+                }.padding(0)
+                Section(header: Text("Details")) {
+                    TextField("Name", text: $name)
                         .padding(.vertical)
+                    Toggle("Remind me", isOn: $remindMe)
+                        .padding(.vertical, 12)
+                    if remindMe {
+                        DatePicker("Remind me", selection: $date)
+                            .datePickerStyle(GraphicalDatePickerStyle())
+                            .padding(.vertical)
+                    }
+                    CenteredButton(title: "Create", action: {
+                        viewModel.saveItem(with: name, and: remindMe ? date : nil)
+                        viewModel.getList()
+                        presentationMode.wrappedValue.dismiss()
+                    }, isDisabled: .constant(name.count == 0))
                 }
-                CenteredButton(title: "Create", action: {
-                    viewModel.saveItem(with: name, and: remindMe ? date : nil)
-                    viewModel.getList()
-                    presentationMode.wrappedValue.dismiss()
-                }, isDisabled: .constant(name.count == 0))
             }
             PresentedViewTopIndicator()
         }
+        .sheet(isPresented: $isPresentingPhotoPicker, content: {
+            PhotoPickerView(image: $image)
+        })
 
     }
 }
 
+struct CreateView_Preview: PreviewProvider {
+    static var previews: some View {
+        CreateView(viewModel: ShoppingListViewModel())
+    }
+}
