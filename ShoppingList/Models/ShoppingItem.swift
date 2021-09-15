@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct ShoppingItem: Identifiable {
     let item: CDShoppingItem
@@ -36,5 +37,19 @@ struct ShoppingItem: Identifiable {
             item.isCompleted = newValue
             CoreDataManager.shared.saveContext()
         }
+    }
+
+    var photoImage: UIImage? {
+        guard let path = ShoppingItem.photoURL(filename: item.filename)?.path else { return nil }
+        return UIImage(contentsOfFile: path)
+    }
+
+    static func photoURL(filename: String?) -> URL? {
+        guard let filename = filename else { return nil }
+        let applicationDocumentsDirectory: URL = {
+            let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+            return paths[0]
+        }()
+        return applicationDocumentsDirectory.appendingPathComponent(filename)
     }
 }

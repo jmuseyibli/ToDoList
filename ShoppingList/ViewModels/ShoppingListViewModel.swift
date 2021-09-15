@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import UIKit
 
 class ShoppingListViewModel: ObservableObject {
     @Published var items: [ShoppingItem] = []
@@ -19,12 +20,12 @@ class ShoppingListViewModel: ObservableObject {
         items = CoreDataManager.shared.getList().map(ShoppingItem.init)
     }
 
-    func saveItem(with name: String, and dueDate: Date? = nil) {
+    func saveItem(withIdentifier identifier: UUID, named name: String, remindedAt dueDate: Date? = nil) {
         let item = CDShoppingItem(context: CoreDataManager.shared.viewContext)
-        item.id = UUID()
+        item.id = identifier
         item.name = name
         item.dueDate = dueDate
-
+        item.filename = identifier.uuidString.appending(".jpg")
         CoreDataManager.shared.saveContext()
     }
 

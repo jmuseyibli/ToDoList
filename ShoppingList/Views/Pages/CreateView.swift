@@ -34,7 +34,9 @@ struct CreateView: View {
                             .padding(.vertical)
                     }
                     CenteredButton(title: "Create", action: {
-                        viewModel.saveItem(with: name, and: remindMe ? date : nil)
+                        let identifier = UUID()
+                        viewModel.saveItem(withIdentifier: identifier, named: name, remindedAt: remindMe ? date : nil)
+                        saveImage(image, name: identifier.uuidString)
                         viewModel.getList()
                         presentationMode.wrappedValue.dismiss()
                     }, isDisabled: .constant(name.count == 0))
@@ -47,6 +49,21 @@ struct CreateView: View {
         })
 
     }
+
+    func saveImage(_ image: UIImage, name: String) {
+        let filename = "\(name).jpg"
+        if !image.isEmpty {
+            let data = image.jpegData(compressionQuality: 0.5)
+            do {
+                if let url = ShoppingItem.photoURL(filename: filename) {
+                    try data?.write(to: url, options: .atomic)
+                }
+            } catch {
+                print(error)
+            }
+        }
+    }
+
 }
 
 struct CreateView_Preview: PreviewProvider {
