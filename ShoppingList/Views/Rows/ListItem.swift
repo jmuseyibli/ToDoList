@@ -6,49 +6,34 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ListItem: View {
     @Binding var shoppingItem: ShoppingItem
+    @State private var isCompact = true
 
     var body: some View {
-        HStack(alignment: .center, spacing: 8) {
-            if let image = shoppingItem.photoImage {
-                Image(uiImage: image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 44, height: 44)
-                    .clipped()
-                    .cornerRadius(8)
-            }
-            Text(shoppingItem.name)
-                .foregroundColor(shoppingItem.isCompleted ? .blue : .black)
-            Spacer()
-            Text(shoppingItem.dueDateDescription)
-                .font(.footnote)
-                .fontWeight(.light)
-                .foregroundColor(.secondary)
-            Checkbox(isChecked: $shoppingItem.isCompleted)
-        }
-        .padding(.vertical, 16)
-        .padding(.horizontal, 24)
-        .onTapGesture {
-            shoppingItem.isCompleted.toggle()
-            CoreDataManager.shared.saveContext()
+        if isCompact {
+            CompactListItem(shoppingItem: $shoppingItem, isCompact: $isCompact)
+        } else {
+            LargeListItem(shoppingItem: $shoppingItem, isCompact: $isCompact)
         }
     }
 }
+
 
 struct ListItem_Previews: PreviewProvider {
     static let cdItem: CDShoppingItem = {
         let cdItem = CDShoppingItem(context: CoreDataManager.shared.viewContext)
         cdItem.id = UUID()
-        cdItem.name = "Sample row"
+        cdItem.name = "Sample row might be long"
         cdItem.filename = "name.jpg"
         cdItem.dueDate = Date()
+        cdItem.link = "Salam"
         return cdItem
     }()
 
     static var previews: some View {
-        ListItem(shoppingItem: .constant(ShoppingItem(item: cdItem))).previewLayout(.fixed(width: 375, height: 64))
+        ListItem(shoppingItem: .constant(ShoppingItem(item: cdItem))).previewLayout(.fixed(width: 375, height: 164))
     }
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CreateView: View {
     @State private var name: String = ""
+    @State private var link: String = ""
     @State private var date: Date = Date()
     @State private var remindMe = false
     @State private var image = UIImage()
@@ -33,9 +34,15 @@ struct CreateView: View {
                             .datePickerStyle(GraphicalDatePickerStyle())
                             .padding(.vertical)
                     }
+                    TextField("Item link", text: $link).padding(.vertical)
                     CenteredButton(title: "Create", action: {
                         let identifier = UUID()
-                        viewModel.saveItem(withIdentifier: identifier, named: name, remindedAt: remindMe ? date : nil)
+                        viewModel.saveItem(
+                            withIdentifier: identifier,
+                            named: name,
+                            remindedAt: remindMe ? date : nil,
+                            atLink: link
+                        )
                         saveImage(image, name: identifier.uuidString)
                         viewModel.getList()
                         presentationMode.wrappedValue.dismiss()

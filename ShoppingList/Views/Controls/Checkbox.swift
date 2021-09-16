@@ -9,12 +9,12 @@ import SwiftUI
 
 struct Checkbox: View {
     @Binding var isChecked: Bool
+    @Binding var isCompact: Bool
     var body: some View {
         Image(systemName: isChecked ? "checkmark.circle.fill" : "circle")
             .renderingMode(.template)
             .resizable()
-            .frame(width: 28, height: 28)
+            .frame(width: isCompact ? 28 : 16, height: isCompact ? 28 : 16)
             .foregroundColor(isChecked ? .blue : .gray)
-            .padding(.trailing, 8)
     }
 }

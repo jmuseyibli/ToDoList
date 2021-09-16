@@ -20,12 +20,13 @@ class ShoppingListViewModel: ObservableObject {
         items = CoreDataManager.shared.getList().map(ShoppingItem.init)
     }
 
-    func saveItem(withIdentifier identifier: UUID, named name: String, remindedAt dueDate: Date? = nil) {
+    func saveItem(withIdentifier identifier: UUID, named name: String, remindedAt dueDate: Date? = nil, atLink link: String?) {
         let item = CDShoppingItem(context: CoreDataManager.shared.viewContext)
         item.id = identifier
         item.name = name
         item.dueDate = dueDate
         item.filename = identifier.uuidString.appending(".jpg")
+        item.link = link
         CoreDataManager.shared.saveContext()
     }
 

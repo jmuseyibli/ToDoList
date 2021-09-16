@@ -23,6 +23,17 @@ struct ShoppingItem: Identifiable {
         item.dueDate
     }
 
+    var link: String? {
+        item.link
+    }
+
+    var hasLink: Bool {
+        if let link = link {
+            return !link.isEmpty
+        }
+        return false
+    }
+
     var dueDateDescription: String {
         if let date = dueDate {
             let formatter = RelativeDateTimeFormatter()
