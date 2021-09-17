@@ -13,14 +13,6 @@ struct CompactListItem: View {
     var body: some View {
         HStack(alignment: .center, spacing: 8) {
             Checkbox(isChecked: $shoppingItem.isCompleted, isCompact: $isCompact)
-            if let image = shoppingItem.photoImage {
-                Image(uiImage: image)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 44, height: 44)
-                    .clipped()
-                    .cornerRadius(8)
-            }
             Text(shoppingItem.name)
                 .lineLimit(1)
                 .foregroundColor(shoppingItem.isCompleted ? .blue : .black)
@@ -29,6 +21,7 @@ struct CompactListItem: View {
                 .font(.footnote)
                 .fontWeight(.light)
                 .foregroundColor(.secondary)
+            if shoppingItem.hasLink || shoppingItem.hasImage {
             Image(systemName: "arrow.up.left.and.arrow.down.right")
                 .resizable()
                 .frame(width: 12, height: 12)
@@ -36,6 +29,7 @@ struct CompactListItem: View {
                 .onTapGesture {
                     isCompact = false
                 }
+            }
         }
         .padding(.vertical, 16)
         .padding(.horizontal, 24)

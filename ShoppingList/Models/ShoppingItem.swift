@@ -50,11 +50,6 @@ struct ShoppingItem: Identifiable {
         }
     }
 
-    var photoImage: UIImage? {
-        guard let path = ShoppingItem.photoURL(filename: item.filename)?.path else { return nil }
-        return UIImage(contentsOfFile: path)
-    }
-
     static func photoURL(filename: String?) -> URL? {
         guard let filename = filename else { return nil }
         let applicationDocumentsDirectory: URL = {
@@ -63,4 +58,18 @@ struct ShoppingItem: Identifiable {
         }()
         return applicationDocumentsDirectory.appendingPathComponent(filename)
     }
+
+    var image: UIImage? {
+        guard let path = ShoppingItem.photoURL(filename: item.filename)?.path else { return nil }
+        return UIImage(contentsOfFile: path)
+    }
+
+    var hasImage: Bool {
+        if let image = image {
+            return !image.isEmpty
+        }
+        return false
+    }
+
+
 }

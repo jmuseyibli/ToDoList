@@ -14,6 +14,8 @@ struct CreateView: View {
     @State private var remindMe = false
     @State private var image = UIImage()
     @State private var isPresentingPhotoPicker = false
+    @State private var isPresentingValidationError = false
+    @State private var validationError = ""
     @Environment(\.presentationMode) var presentationMode
 
     var viewModel: ShoppingListViewModel
@@ -36,6 +38,14 @@ struct CreateView: View {
                     }
                     TextField("Item link", text: $link).padding(.vertical)
                     CenteredButton(title: "Create", action: {
+                        if !link.isEmpty {
+                            guard let url = URL(string: link) else { return }
+                            guard UIApplication.shared.canOpenURL(url) else {
+                                isPresentingValidationError = true
+                                validationError = "This is not a valid link"
+                                return
+                            }
+                        }
                         let identifier = UUID()
                         viewModel.saveItem(
                             withIdentifier: identifier,
@@ -53,6 +63,9 @@ struct CreateView: View {
         }
         .sheet(isPresented: $isPresentingPhotoPicker, content: {
             PhotoPickerView(image: $image)
+        })
+        .alert(isPresented: $isPresentingValidationError, content: {
+            Alert(title: Text(validationError))
         })
 
     }
