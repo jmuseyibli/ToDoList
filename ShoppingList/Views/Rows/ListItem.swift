@@ -21,6 +21,26 @@ struct ListItem: View {
     }
 }
 
+struct CalendarListItem: View {
+    @Binding var shoppingItem: ShoppingItem
+
+    var body: some View {
+        HStack(alignment: .center, spacing: 8) {
+            Rectangle().frame(width: 4, height: 32).foregroundColor(shoppingItem.isCompleted ? .blue : .secondary)
+            Text(shoppingItem.name)
+                .lineLimit(1)
+                .foregroundColor(.primary)
+            Spacer()
+            Text(shoppingItem.dueDateDescription)
+                .font(.footnote)
+                .fontWeight(.light)
+                .foregroundColor(.secondary)
+        }
+        .padding(.trailing, 24)
+        .padding(.vertical, 4)
+    }
+}
+
 
 struct ListItem_Previews: PreviewProvider {
     static let cdItem: CDShoppingItem = {
@@ -34,6 +54,6 @@ struct ListItem_Previews: PreviewProvider {
     }()
 
     static var previews: some View {
-        ListItem(shoppingItem: .constant(ShoppingItem(item: cdItem))).previewLayout(.fixed(width: 375, height: 164))
+        CalendarListItem(shoppingItem: .constant(ShoppingItem(item: cdItem))).previewLayout(.fixed(width: 375, height: 164))
     }
 }

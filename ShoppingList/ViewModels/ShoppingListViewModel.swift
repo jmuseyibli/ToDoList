@@ -11,6 +11,16 @@ import UIKit
 
 class ShoppingListViewModel: ObservableObject {
     @Published var items: [ShoppingItem] = []
+    @Published var itemsByDate = [Date: [ShoppingItem]]()
+    var cancellabes = Set<AnyCancellable>()
+
+    init() {
+        getList()
+        $items.sink { items in
+            let items = items.filter({ $0.dueDate != nil })
+            self.itemsByDate = Dictionary(grouping: items, by: {Calendar.current.startOfDay(for: $0.dueDate!)})
+        }.store(in: &cancellabes)
+    }
 
     var incompleteCount: Int {
         items.filter({ !$0.isCompleted }).count

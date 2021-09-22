@@ -8,6 +8,24 @@
 import SwiftUI
 
 struct HomeView: View {
+
+    var body: some View {
+
+        TabView {
+            ListView().tabItem { Label("List", systemImage: "list.dash") }
+            CalendarView().tabItem { Label("Calendar", systemImage: "calendar") }
+        }
+    }
+
+}
+
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView()
+    }
+}
+
+struct ListView: View {
     @State var presentingCreateView = false
     @ObservedObject var viewModel = ShoppingListViewModel()
 
@@ -40,16 +58,6 @@ struct HomeView: View {
                     CreateView(viewModel: viewModel)
                 }
             )
-            .onAppear(perform: {
-                viewModel.getList()
-            })
-
         }
-    }
-}
-
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
     }
 }

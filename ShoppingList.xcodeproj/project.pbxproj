@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A137F15626F7C31C006BD8AD /* ElegantCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = A137F15526F7C31C006BD8AD /* ElegantCalendar */; };
 		A154D07A26F12B4A003A4067 /* ShoppingListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A154D07926F12B4A003A4067 /* ShoppingListApp.swift */; };
 		A154D07C26F12B4A003A4067 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A154D07B26F12B4A003A4067 /* HomeView.swift */; };
 		A154D07E26F12B53003A4067 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A154D07D26F12B53003A4067 /* Assets.xcassets */; };
@@ -23,8 +24,10 @@
 		A154D0B626F13B9D003A4067 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A154D0B526F13B9D003A4067 /* UIImage+Extensions.swift */; };
 		A154D0BA26F1427B003A4067 /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A154D0B926F1427B003A4067 /* PhotoPickerView.swift */; };
 		A154D0BD26F142B0003A4067 /* ImagePickerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A154D0BC26F142B0003A4067 /* ImagePickerButton.swift */; };
+		A182F7A726F9EF1D006F52C9 /* ElegantCalendar.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A182F7A626F9EF1D006F52C9 /* ElegantCalendar.xcassets */; };
 		A18FCA0426F39DAF0097E00F /* CompactListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18FCA0326F39DAF0097E00F /* CompactListItem.swift */; };
 		A18FCA0726F39DBC0097E00F /* LargeListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18FCA0626F39DBC0097E00F /* LargeListItem.swift */; };
+		A18FCA0A26F5C8600097E00F /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18FCA0926F5C8600097E00F /* CalendarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,8 +49,10 @@
 		A154D0B526F13B9D003A4067 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		A154D0B926F1427B003A4067 /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
 		A154D0BC26F142B0003A4067 /* ImagePickerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerButton.swift; sourceTree = "<group>"; };
+		A182F7A626F9EF1D006F52C9 /* ElegantCalendar.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = ElegantCalendar.xcassets; path = "../../../Library/Developer/Xcode/DerivedData/ShoppingList-dltpuvcovkmzhrdojtzgxkztxpix/SourcePackages/checkouts/ElegantCalendar/ElegantCalendar.xcassets"; sourceTree = "<group>"; };
 		A18FCA0326F39DAF0097E00F /* CompactListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactListItem.swift; sourceTree = "<group>"; };
 		A18FCA0626F39DBC0097E00F /* LargeListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeListItem.swift; sourceTree = "<group>"; };
+		A18FCA0926F5C8600097E00F /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A137F15626F7C31C006BD8AD /* ElegantCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +70,7 @@
 		A154D06D26F12B4A003A4067 = {
 			isa = PBXGroup;
 			children = (
+				A182F7A626F9EF1D006F52C9 /* ElegantCalendar.xcassets */,
 				A154D07826F12B4A003A4067 /* ShoppingList */,
 				A154D07726F12B4A003A4067 /* Products */,
 			);
@@ -163,6 +170,7 @@
 				A154D07B26F12B4A003A4067 /* HomeView.swift */,
 				A154D0A826F130B5003A4067 /* CreateView.swift */,
 				A154D0B926F1427B003A4067 /* PhotoPickerView.swift */,
+				A18FCA0926F5C8600097E00F /* CalendarView.swift */,
 			);
 			path = Pages;
 			sourceTree = "<group>";
@@ -199,6 +207,9 @@
 			dependencies = (
 			);
 			name = ShoppingList;
+			packageProductDependencies = (
+				A137F15526F7C31C006BD8AD /* ElegantCalendar */,
+			);
 			productName = ShoppingList;
 			productReference = A154D07626F12B4A003A4067 /* ShoppingList.app */;
 			productType = "com.apple.product-type.application";
@@ -226,6 +237,9 @@
 				Base,
 			);
 			mainGroup = A154D06D26F12B4A003A4067;
+			packageReferences = (
+				A137F15426F7C31C006BD8AD /* XCRemoteSwiftPackageReference "ElegantCalendar" */,
+			);
 			productRefGroup = A154D07726F12B4A003A4067 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -242,6 +256,7 @@
 			files = (
 				A154D08126F12B53003A4067 /* Preview Assets.xcassets in Resources */,
 				A154D07E26F12B53003A4067 /* Assets.xcassets in Resources */,
+				A182F7A726F9EF1D006F52C9 /* ElegantCalendar.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,6 +270,7 @@
 				A154D09C26F12D5F003A4067 /* ListItem.swift in Sources */,
 				A154D0AE26F130FD003A4067 /* PresentedViewTopIndicator.swift in Sources */,
 				A154D0B226F1313C003A4067 /* CenteredButton.swift in Sources */,
+				A18FCA0A26F5C8600097E00F /* CalendarView.swift in Sources */,
 				A154D0B626F13B9D003A4067 /* UIImage+Extensions.swift in Sources */,
 				A18FCA0726F39DBC0097E00F /* LargeListItem.swift in Sources */,
 				A154D0A926F130B5003A4067 /* CreateView.swift in Sources */,
@@ -456,6 +472,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A137F15426F7C31C006BD8AD /* XCRemoteSwiftPackageReference "ElegantCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jmuseyibli/ElegantCalendar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A137F15526F7C31C006BD8AD /* ElegantCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A137F15426F7C31C006BD8AD /* XCRemoteSwiftPackageReference "ElegantCalendar" */;
+			productName = ElegantCalendar;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		A154D08F26F12CB2003A4067 /* ShoppingList.xcdatamodeld */ = {
