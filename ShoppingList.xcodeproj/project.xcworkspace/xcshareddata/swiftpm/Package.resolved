@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "ElegantCalendar",
+        "repositoryURL": "https://github.com/jmuseyibli/ElegantCalendar",
+        "state": {
+          "branch": null,
+          "revision": "2b0ebe5dbb2f19db2e4a6302536fb32f3a2e6ecf",
+          "version": "4.3.3"
+        }
+      },
+      {
+        "package": "ElegantPages",
+        "repositoryURL": "https://github.com/ThasianX/ElegantPages",
+        "state": {
+          "branch": null,
+          "revision": "d598ce4824c40296decc84eae5b3c042d3dff842",
+          "version": "1.4.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
